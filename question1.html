@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="container-fluid">
-    <h1>HW</h1>
+    <h1>Question 1</h1>
 
     <div class="question">
       <h3>A function of cell membranes in humans is the</h3>
@@ -25,7 +25,10 @@
       <br>
       <div class="row">
         <button type="button" class="btn btn-default btn-sm">synthesis</button>
-        <button type="button" class="btn btn-default btn-sm">amino acids</button>
+
+        <button type="button" class="btn btn-danger btn-sm" data-toggle="popover" data-placement="bottom"
+        title="amino acids" data-content="are the monomers (building blocks) of proteins">amino acids</button>
+
         <button type="button" class="btn btn-default btn-sm">energy</button>
         <button type="button" class="btn btn-default btn-sm">replication</button>
         <button type="button" class="btn btn-default btn-sm">genetic material</button>
@@ -37,19 +40,20 @@
     <div class="row">
       <div class="col-xs-12">
         <p>
-          Behind the Scenes:<br>
-          Concept Tested: Standard 4, Key Idea 1.2i<br>
+          Concept Tested: Standard 4, Key Idea 1.2i</br>
           Question: August 2014 #1
         </p>
-        
+
+
         <br>
 
-        <p>Behind the scenes, the software keeps track that the student missed Standard 4, Key Idea 1.2i if they answer the question incorrectly.</p>
-        <p>As soon as the student clicks on an answer choice, he/she is presented with the next question.</p>
-        <p>Upon completion of all the questions, they get the "reVIEW VIEW" and see the green/red backgrounds for questions answered correctly/incorrectly.</p>
-        <p>Vocab quizzes should be presented throughout (every 5 questions? every 10? upon completion? backwards... as in definition given, pick the word?)</p>
+        <p>Behind the scenes, the software keeps track that the student missed Standard 4, Key Idea 1.2i if they answer the question incorrectly. Think of a giant spreadsheet showing every single Key Idea and keeping track of how well a student has answered a specific concept that's been tested. You could visually see over the course of the year if a student has mastered a concept or is struggling. This data could also be scaled up to the class... to see which concepts are giving the students problems. You could then go over this in class, or personalize "review module videos" for the students to learn on their own.</p>
 
-        <p>The software should keep track of EVERY standard and how well the student understands each concept. Think of it in table form. See blue notebook.</p>
+        <p>As soon as the student clicks on an answer choice, he/she is presented with the next question.</p>
+
+        <p>Upon completion of all the questions, they get the "reVIEW VIEW" and see the green/red backgrounds for questions answered correctly/incorrectly.</p>
+
+        <p>KEEP TRACK OF MISUNDERSTOOD WORDS (when clicked): Vocab quizzes should be presented throughout (every 5 questions? every 10? upon completion? backwards... as in definition given, pick the word?)</p>
       </div>
     </div>
 
@@ -65,8 +69,11 @@
     </div> -->
   </div> <!-- container -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script>
+    $("[data-toggle='popover'").popover("hide","trigger: click","toggle");
+  </script>
 </body>
 </html>
 
