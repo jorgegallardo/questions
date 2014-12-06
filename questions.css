@@ -1,0 +1,24 @@
+.question {
+  color: #FFF;
+  background-color: #0076ea;
+  margin: 5px 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.questionRight {
+  background-color: #5cb85c;
+}
+
+.questionWrong {
+  background-color: #d9534f;
+}
+
+h1 {
+  text-align: center;
+}
+
+.question > h3 {
+  margin: 5px 10px;
+  font-weight: 300;
+}
