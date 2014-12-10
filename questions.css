@@ -1,10 +1,10 @@
 .container-fluid {
-  background-color: #0076ea;
+  background-color: #FFF;
 }
 
 .question {
-  color: #FFF;
-  background-color: #0076ea;
+  color: #000;
+  background-color: #FFF;
   margin: 5px 0;
   padding: 10px;
   text-align: center;
@@ -20,6 +20,7 @@
 
 h1 {
   text-align: center;
+  color: #000;
 }
 
 .question > h3 {
@@ -27,21 +28,11 @@ h1 {
   font-weight: 300;
 }
 
-.popover-title {
-  padding: 8px 14px;
-  margin: 0;
-  font-size: 14px;
-  background-color: #f7f7f7;
-  color: black;
-  border-bottom: 1px solid #ebebeb;
-  border-radius: 5px 5px 0 0;
-}
-
-.popover-content {
-  padding: 9px 14px;
-  color: black;
-}
-
 .btn-sm {
   margin: 5px;
+}
+
+.btn-word {
+  margin: 5px;
+  color: black;
 }
