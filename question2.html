@@ -6,14 +6,22 @@
   <title>Homework</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="questions.css">
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.0.0/css/bootstrap-toggle.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="container-fluid">
     <h1>2</h1>
 
     <div class="question">
-      <h3>Forests, mountains, rivers, and marshes are examples of the wide variety of ecosystems in New York State. The diversity of these ecosystems is most likely the result of</h3>
-      <br>
+      <h3>Forests, mountains, rivers, and
+
+        <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" role="button" title="marshes" data-content="stuff">marshes</button>
+        are examples of the wide variety of
+
+        <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" role="button" title="ecosystems" data-content="stuff">ecosystems</button>
+
+        in New York State. The diversity of these ecosystems is most likely the result of</h3>
+      <hr>
       <div class="row">
         <div class="btn-group-vertical" role="group">
           <button type="button" class="btn btn-default">the variety of abiotic conditions in these regions</button>
@@ -23,15 +31,17 @@
         </div>
       </div>
       <br>
-      <div class="row">
-        <button type="button" class="btn btn-warning btn-word">marshes</button>
-        <button type="button" class="btn btn-warning btn-word">ecosystems</button>
-        <button type="button" class="btn btn-warning btn-word">abiotic</button>
-        <button type="button" class="btn btn-warning btn-word">producers</button>
-        <button type="button" class="btn btn-warning btn-word">decomposers</button>
-        <button type="button" class="btn btn-warning btn-word">endangered species</button>
-        <button type="button" class="btn btn-warning btn-word">heterotrophs</button>
-      </div>
+      <input type="checkbox" checked data-toggle="toggle" data-on="Answer" data-off="Word Help" data-onstyle="success" data-offstyle="primary">
+      <br><br>
+      <ul class="list-inline">
+        <li><button type="button" class="btn btn-warning">abiotic</button></li>
+        <li><button type="button" class="btn btn-warning">producers</button></li>
+        <li><button type="button" class="btn btn-warning">decomposers</button></li>
+        <li><button type="button" class="btn btn-warning">endangered species</button></li>
+        <li><button type="button" class="btn btn-warning">heterotrophs</button></li>
+      </ul>
+
+
     </div>
 <br>
     <div class="row">
@@ -44,8 +54,13 @@
     </div>
   </div> <!-- container -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script>
+    $("[data-toggle='popover'").popover("hide","trigger: click","toggle");
+    console.log("great");
+  </script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.0.0/js/bootstrap-toggle.min.js"></script>
 </body>
 </html>
 
