@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="questions">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="questions.css">
 </head>
-<body>
+<body ng-controller="question">
   <div class="container-fluid">
     <h1>Question 1</h1>
-
+    <span compile="question.htmlText"></span>
     <div class="question">
       <h3>A function of cell membranes in humans is the</h3>
       <br>
@@ -27,7 +27,7 @@
         <li><button type="button" role="button" class="btn btn-danger btn-word" data-toggle="popover" data-placement="bottom"
         title="synthesis" data-content="making or creating">synthesis</button></li>
         <li><button type="button" class="btn btn-danger btn-word" data-toggle="popover" data-placement="bottom"
-        title="amino acids" data-content="the monomers (building blocks) of proteins">amino acids</button></li>
+        title="amino acids" data-content="the monomers (building blocks) of <b>proteins</b>" data-html="true">amino acids</button></li>
         <li><button type="button" class="btn btn-warning btn-word">energy</button></li>
         <li><button type="button" class="btn btn-warning btn-word">replication</button></li>
         <li><button type="button" class="btn btn-warning btn-word">genetic material</button></li>
@@ -70,8 +70,61 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-sanitize.min.js"></script>
   <script>
     $("[data-toggle='popover'").popover("hide","trigger: click","toggle");
+
+    angular.module('questions', ['ngSanitize'])
+    .controller('question', function($scope) {
+
+      $scope.showDefinition = function(word) {
+        alert(word);
+      };
+
+      $scope.question = {
+        text: 'Forests, mountains, rivers, and %%%marshes%%% are examples of the wide variety of %%%ecosystem%%% in New York State. The diversity of these ecosystems is most likely the result of',
+        answers: [
+          'synthesis of the amino acids',
+          'production of energy'
+        ],
+        correctAnswerIndex: 1,
+        keyWords: [
+          'abiotic',
+          'producers'
+        ]
+      };
+
+      var rawText = $scope.question.text;
+      $scope.question.htmlText = rawText;
+
+      var keyWords = rawText.match(/%%%\w+%%%/g);
+
+      for (var i = 0; i < keyWords.length; i++) {
+        var wordOnly = keyWords[i].substring(3);
+        wordOnly = wordOnly.substring(0, wordOnly.length - 3);
+        $scope.question.htmlText = $scope.question.htmlText.replace(keyWords[i], '<button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" role="button" title="' + wordOnly + '" data-content="' + wordOnly + ' means something">' + wordOnly + '</button>');
+      }
+
+      console.log($scope.question.htmlText);
+
+    }).directive('compile', ['$compile', function ($compile) {
+      return function(scope, element, attrs) {
+        scope.$watch(
+          function(scope) {
+            return scope.$eval(attrs.compile);
+          },
+          function(value) {
+            element.html(value);
+            $compile(element.contents())(scope);
+            $("[data-toggle='popover'").popover("hide","trigger: click","toggle");
+          }
+        )};
+      }
+    ]);
+
+    
+
   </script>
 </body>
 </html>
